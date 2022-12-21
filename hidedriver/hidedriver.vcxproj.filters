@@ -39,12 +39,18 @@
     <ClInclude Include="dbgmsg.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="communication.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hidedriver.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="IRQL_s.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="communication.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

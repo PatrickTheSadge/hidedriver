@@ -155,6 +155,7 @@
     <FilesToPackage Include="$(TargetPath)" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="communication.h" />
     <ClInclude Include="datatype.h" />
     <ClInclude Include="dbgmsg.h" />
     <ClInclude Include="hidedriver.h" />
@@ -162,6 +163,7 @@
     <ClInclude Include="messages.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="communication.c" />
     <ClCompile Include="hidedriver.c" />
     <ClCompile Include="IRQL_s.c" />
   </ItemGroup>
