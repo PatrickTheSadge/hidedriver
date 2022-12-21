@@ -16,7 +16,7 @@ KIRQL RaiseIRQL()
 
 void lockRoutine(IN PKDPC dpc, IN PVOID context, IN PVOID arg1, IN PVOID arg2)
 {
-	DBG_PRINT2("[lockRoutine]: begin-CPU[%u]", KeGetCurrentProcessorNumber());
+	DBG_PRINT2("[lockRoutine]: begin-CPU[%u]\n", KeGetCurrentProcessorNumber());
 	InterlockedIncrement(&nCPUsLocked);
 
 	while (InterlockedCompareExchange(&LockAcquired, 1, 1) == 0)
@@ -28,7 +28,7 @@ void lockRoutine(IN PKDPC dpc, IN PVOID context, IN PVOID arg1, IN PVOID arg2)
 	}
 
 	InterlockedDecrement(&nCPUsLocked);
-	DBG_PRINT2("[lockRoutine]: end-CPU[%u]", KeGetCurrentProcessorNumber());
+	DBG_PRINT2("[lockRoutine]: end-CPU[%u]\n", KeGetCurrentProcessorNumber());
 	return;
 }
 
