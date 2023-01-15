@@ -42,7 +42,7 @@ int main(int argc, char** argv)
         if (cmtor.hideTask(this_pid))
             printf("Done.\n");
         else
-            printf("Failed to hide process [PID=%d]\n", pid);
+            printf("Failed to hide process [PID=%d]\n", this_pid);
     }
 
     if (opts.hide_smth)
@@ -76,7 +76,7 @@ void parse_options(int argc, char** argv, options* opts)
 
             else if (std::strcmp(argv[i], "-ht") == 0)
             {
-                opts->hide_smth = true;
+                //opts->hide_smth = true;
                 opts->hide_this_pid = true;
             }
             else if (std::strcmp(argv[i], "-p") == 0)

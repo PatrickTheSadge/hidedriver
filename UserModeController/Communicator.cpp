@@ -4,7 +4,7 @@ bool Communicator::hideTask(DWORD pid)
 {
 	if (hDriver == INVALID_HANDLE_VALUE)
 	{
-		printf("IO_HIDE_PROCESS: %d\n", IO_HIDE_PROCESS);
+		//printf("IO_HIDE_PROCESS: %d\n", IO_HIDE_PROCESS);
 		printf("Driver not found\n");
 		return false;
 	}
